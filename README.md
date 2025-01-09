@@ -31,8 +31,9 @@ public class Counter implements Runnable {
 }
 ```
 
-Counter 객체는 하나만 존재하고 해당 객체를 여러 스레드에 넣어 실행시킨다.
-Thread::start() 함수에 의해 Counter::run() 함수가 호출될 것이고, 순차적으로 호출되어 "101010" 이 출력될 것이라 예상하게된다.
+Counter 객체는 하나만 존재하고 해당 객체를 여러 스레드에 넣어 실행시킨다.</br>
+Thread::start() 함수에 의해 Counter::run() 함수가 호출될 것이고, 순차적으로 호출되어 "101010" 이 출력될 것이라 예상하게된다.</br>
+하지만, 결과를 보면 예상과는 많이 다르게 나오게 되는데 그 이유는 Thread Safe 하지 않기에 Race Codition이 발생했기 때문이다.</br>
 
 ```java
 public class RaceConditionDemo {
@@ -48,13 +49,13 @@ public class RaceConditionDemo {
     }
 }
 ```
-하지만, 결과는 예상과는 많이 다르게 나오게 되는데 그 이유는 Thread Safe 하지 않기에 Race Codition이 발생했기 때문이다.
 
 <img src="/img/UnThreadsafe.png" width="">
 
 **🔻Case2**
 
-synchronized 는 동시 접근 방지, 모니터 락 기능을 통해 멀티스레드 환경에서 발생할 수 있는 데이터 무결성 문제를 해결한다.
+synchronized 는 동시 접근 방지, 모니터 락 기능을 통해 멀티스레드 환경에서 발생할 수 있는 데이터 무결성 문제를 해결한다.</br>
+결과를 확인해보면 기대했던 "101010" 이 출력됨을 확인할 수 있다.</br>
 
 ```java
 public class Counter implements Runnable {
@@ -72,6 +73,5 @@ public class Counter implements Runnable {
     }
 }
 ```
-기대했던 "101010" 이 출력됨을 확인할 수 있다.
 
 <img src="/img/Threadsafe.png" width="">
