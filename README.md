@@ -1,5 +1,7 @@
 # Singleton 과 Thread safe
 
+[_Velog URL [CGI 프로그램과 서블릿]_](https://velog.io/@kih0976/CGI-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EA%B3%BC-%EC%84%9C%EB%B8%94%EB%A6%BF)
+
 ### 📌Singleton 과 Thread-Safe
 
 - `Singleton` 은 애플리케이션 전역에서 하나의 인스턴스만 유지하기 위한 디자인 패턴이다.
